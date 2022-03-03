@@ -63,9 +63,9 @@ COVID News
 Suggestions related to nearby COVID centers, Hospitals. 
 
 ## Flow Navigation (Screen to Screen)
-State Selection -> shows COVID cases in a selected state( Currently just United States)
-Different cases selection -> shows positive, negative, and death cases
-Date selection ->  by clicking on the line plot, exact no of COVID cases on that particular day will be displayed.
-Time period -> shows line plot chart of the COVID cases throughout the week, month etc.
+* State Selection -> shows COVID cases in a selected state( Currently just United States)
+* Different cases selection -> shows positive, negative, and death cases
+* Date selection ->  by clicking on the line plot, exact no of COVID cases on that particular day will be displayed.
+* Time period -> shows line plot chart of the COVID cases throughout the week, month etc.
 
 
