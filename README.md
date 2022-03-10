@@ -68,4 +68,56 @@ Suggestions related to nearby COVID centers, Hospitals.
 * Date selection ->  by clicking on the line plot, exact no of COVID cases on that particular day will be displayed.
 * Time period -> shows line plot chart of the COVID cases throughout the week, month etc.
 
+## Wireframes
+
+
+<img src='https://github.com/saidaAfroj/Covid_app/blob/main/projectimages/handdrawn_wireframe.jpeg' width='' />
+
+## [BONUS] Digital Wireframes & Mockups
+
+<img src='https://github.com/saidaAfroj/Covid_app/blob/main/projectimages/mockup1.jpeg' width='' />  <img src='https://github.com/saidaAfroj/Covid_app/blob/main/projectimages/mockup2.jpeg' width='' />
+
+<img src='https://github.com/saidaAfroj/Covid_app/blob/main/projectimages/mockup3.jpeg' width='' /> <img src='https://github.com/saidaAfroj/Covid_app/blob/main/projectimages/mockup4.jpeg' width='' />
+
+
+## Schema
+
+## Models
+
+ Post
+
+|Property|Type|Description|
+|-------|------|----------|
+|DataPosted|DateTime|The date that the COVID-19 announcement was published|
+|Name|Text|The short title of State or City name  in plain text|
+|Covid|Number|Number of covid cases|
+|Graph|LineGraph|Shows the covid cases in a graph|
+|UpdatedAt|DateTime|Date when application was last updated|
+
+## Networking
+
+## List of network requests by screen
+
+1 .National data per day :
+        /api/v1/us/daily.json
+
+2.State data per day 
+        /api/v1/states/daily.json
+        
+We will use RETROFIT which is type-safe HTTP client for
+android and java. 
+
+``` val client = OkHttpClient()
+
+val request = Request.Builder()
+	.url("https://coronavirus-smartable.p.rapidapi.com/news/v1/US/")
+	.get()
+	.addHeader("x-rapidapi-host", "coronavirus-smartable.p.rapidapi.com")
+	.addHeader("x-rapidapi-key", "538f48a7eemsh1b236df53126d80p12c0ffjsn56127e111c82")
+	.build()
+
+val response = client.newCall(request).execute()
+```
+
+
 
