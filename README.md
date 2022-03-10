@@ -84,7 +84,7 @@ Suggestions related to nearby COVID centers, Hospitals.
 
 ## Models
 
- Post
+### Post
 
 |Property|Type|Description|
 |-------|------|----------|
@@ -96,7 +96,7 @@ Suggestions related to nearby COVID centers, Hospitals.
 
 ## Networking
 
-## List of network requests by screen
+### List of network requests by screen
 
 1 .National data per day :
         /api/v1/us/daily.json
