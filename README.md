@@ -1,4 +1,4 @@
-# Unit 7 - *Coding Tracker*
+# Unit 8 - *Build Sprint 2*
 
 **Covid Tracker** is a covid cases tracking application that shows the no of covid cases and the graph.
 
