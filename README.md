@@ -2,7 +2,7 @@
 
 **Covid Tracker** is a covid cases tracking application that shows the no of covid cases and the graph.
 
-Time spent: **14** hours spent in total
+Time spent: **15** hours spent in total
 
 ## User Stories
 
@@ -15,6 +15,8 @@ The following **required** functionality is completed:
 - [x] Make the API call for national data
 - [x] Users can get covid cases count
 - [x] made a simple UI where users can toggle between different time periods and cases
+- [X] made an option to see the number of negative , positive and death cases
+- [X] Added the option to see the number of cases month or weekwise
  
 
 ## Video Walkthrough
