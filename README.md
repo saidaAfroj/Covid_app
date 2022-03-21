@@ -21,7 +21,10 @@ The following **required** functionality is completed:
 
 Here's a walkthrough of implemented user stories:
 
-https://submissions.us-east-1.linodeobjects.com/android_university/OFam47pe.gif
+<img src='https://github.com/saidaAfroj/Covid_app/blob/main/unit_8.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+
+https://github.com/saidaAfroj/Covid_app/blob/main/unit_8.gif
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
