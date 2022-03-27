@@ -3,6 +3,8 @@ package com.example.covidtracking
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.annotation.ColorInt
+import androidx.core.content.ContextCompat
 import com.google.gson.GsonBuilder
 import kotlinx.android.synthetic.main.activity_main.*
 import org.w3c.dom.Text
@@ -18,8 +20,11 @@ import java.util.*
 private const val BASE_URl = "https://covidtracking.com/api/v1/"
 
 private const val TAG = "MainActivity"
+private const val All_STATES = "All ( NationWIde)"
 class MainActivity : AppCompatActivity() {
 
+
+    private lateinit var currentlyShownData: List<CovidData>
     private lateinit var adapter: CovidSparkAdapter
     private lateinit var perStateDailyData: Map<String, List<CovidData>>
     private lateinit var nationalDailyData: List<CovidData>
@@ -74,11 +79,21 @@ class MainActivity : AppCompatActivity() {
 
                 perStateDailyData = statesData.reversed().groupBy { it.state }
                 Log.i(TAG, "update spinner with state names")
+                //Update spinner with state name
+                updateSpineerWithStateData(perStateDailyData.keys)
             }
 
 
 
         })
+
+    }
+   //Display the state name in the top
+    private fun updateSpineerWithStateData(stateNames: Set<String>) {
+     val  stateAbbreviatioList = stateNames.toMutableList()//
+        stateAbbreviatioList.sort()
+       stateAbbreviatioList.add(0,All_STATES)
+       //Add state list as data source for the spinner
 
     }
 
@@ -111,19 +126,34 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateDisplayMetric(metric: Metric) {
-        //Update that data has changed
+        //update the color of the chart
+        val colorRes = when (metric){
+            Metric.DEATH ->R.color.colorDeath
+            Metric.NEGATIVE ->R.color.colorNegative
+            Metric.POSITIVE -> R.color.colorPositive
+
+        }
+       @ColorInt val colorInt = ContextCompat.getColor(this, colorRes)
+      sparkView.lineColor = colorInt
+        tvMetricLabel.setTextColor(colorInt)
+
+        //Update the metric on the adapter
         adapter.metric = metric
         adapter.notifyDataSetChanged()
+
+        //Rest number and date shown in the bottom text views
+        updateInfoForDate(currentlyShownData.last())
     }
 
     private fun updateDisplayWithData(dailyData: List<CovidData>) {
+        currentlyShownData = dailyData
 
         adapter = CovidSparkAdapter(dailyData)
         sparkView.adapter = adapter
         radioButtonPositive.isChecked = true
         radioButtonMax.isChecked = true
 
-        updateInfoForDate(dailyData.last())
+        updateDisplayMetric(Metric.POSITIVE)
     }
     private fun updateInfoForDate(covidData: CovidData) {
         val numCases = when (adapter.metric){
